@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+
+  minecraft:
+    image: itzg/minecraft-server
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./data/:/data
+      - ./mods:/data/mods
+    environment:
+      - EULA=TRUE
+      - OVERRIDE_SERVER_PROPERTIES=true
+      - TYPE=FABRIC
+      - FABRIC_LAUNCHER_URL=https://meta.fabricmc.net/v2/versions/loader/1.19/0.14.7/0.11.0/server/jar
+      - VERSION=1.19.0
+    restart: always
